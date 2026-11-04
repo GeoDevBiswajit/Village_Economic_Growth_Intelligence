@@ -1,0 +1,11 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Large GIS/database files
+*.dbf
+*.shp
+*.shx
+*.cpg
+*.prj
