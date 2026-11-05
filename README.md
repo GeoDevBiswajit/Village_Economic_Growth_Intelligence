@@ -7,22 +7,40 @@ village-economic-growth-intelligence/
 ├── methodology.md
 │
 ├── data/
-│   ├── raw/
-│   ├── processed/
+│   ├── input_data/
+│   │   ├──csvs
+│   │   └──vectore_file
 │   └── output/
+│       ├──results
+│       └──vectore
 │
 ├── notebooks/
 │   ├── 01_data_exploration.ipynb
-│   ├── 02_raster_extraction.ipynb
-│   ├── 03_growth_scoring.ipynb
-│   └── 04_validation_visualization.ipynb
+│   ├── 02_EDA_and_modeling.ipynb
 │
 ├── src/
-│   ├── data_processing.py
-│   ├── feature_engineering.py
-│   └── scoring.py
+│   ├── config.py
+│   ├── eda.py
+│   ├── extract.py
+│   ├── processes.py
+│   ├── score.py
+│   ├── visualize.py
+│   └── run_pipeline.py
 │
-├── figures/
 │
 └── presentation/
     └── village_growth_intelligence.pdf
+
+## Architecture (SRP)
+- `config.py`: Centralized parameters, file paths, and weights.
+- `extract.py`: GEE extraction and Drive export.
+- `process.py`: Geometry parsing, merging, and spatial/growth filtering.
+- `score.py`: Feature scaling and weighted sum calculation.
+- `visualize.py`: Static choropleth (Matplotlib) and Interactive Web Map (Folium).
+- `run_pipeline.py`: Main orchestrator script.
+
+## How to Run
+1. Update paths in `config.py`.
+2. Run `python run_pipeline.py`.
+   - If CSVs are missing, it triggers GEE exports.
+   - Once CSVs are in the input directory, running it again completes processing and visualization.
