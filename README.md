@@ -11,7 +11,7 @@ village-economic-growth-intelligence/
 │   │   ├──csvs
 │   │   └──vectore_file
 │   └── output/
-│       ├──results
+│       ├──results 
 │       └──vectore
 │
 ├── notebooks/
